@@ -17,7 +17,7 @@ jQuery 3.7.1 is loaded from the official CDN. All handlers are inside `$(documen
 
 ### Task 1. Selectors and CSS
 
-The page shows my name, group, headline, and introduction. `#greeting` is an ID selector, `h1` is a tag selector, and `.section-label` is a class selector. `.text()` updates the greeting, while `.css()` changes the heading spacing and label color. Light and Dark buttons switch the theme. Common colors and spacing are stored in CSS variables.
+The page shows my name, group, headline, and introduction. `#greeting` is an ID selector, `h1` is a tag selector, and `.intro` is a class selector. `.text()` updates the greeting. `.css()` changes the heading color and makes the introduction bold. Light and Dark buttons switch the theme. Common colors and spacing are stored in CSS variables.
 
 ![Task 1 — updated greeting and dark theme](screenshots/task-1-selectors-theme.png)
 

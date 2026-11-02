@@ -7,19 +7,17 @@
     <title>Assem Tugelbay | Portfolio</title>
     <style>
         :root {
-            --background: #f6f5f0;
+            --background: #f1f1f1;
             --surface: #ffffff;
-            --text: #263b33;
-            --muted: #66736a;
-            --accent: #35634b;
-            --soft: #e7eee4;
-            --border: #dbe1d7;
+            --text: #29252a;
+            --muted: #666166;
+            --accent: #923f5d;
+            --soft: #f3e3e9;
+            --border: #d7ced2;
             --font: Arial, sans-serif;
             --small: 8px;
             --medium: 16px;
             --large: 24px;
-            --section-gap: 40px;
-            --radius: 14px;
         }
 
         * {
@@ -31,26 +29,28 @@
             background: var(--background);
             color: var(--text);
             font-family: var(--font);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         body.dark {
-            --background: #19251f;
-            --surface: #233229;
-            --text: #edf1e9;
-            --muted: #bac6b8;
-            --accent: #b3d3aa;
-            --soft: #334838;
-            --border: #445448;
+            --background: #1d1d20;
+            --surface: #29292e;
+            --text: #eeeeee;
+            --muted: #c2bac0;
+            --accent: #efb1c5;
+            --soft: #44313b;
+            --border: #60555d;
         }
 
         .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: auto;
+            width: 92%;
+            max-width: 900px;
+            margin: var(--large) auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
         }
 
-        header, .header-left, nav, .buttons {
+        nav, .buttons {
             display: flex;
             align-items: center;
             gap: var(--small);
@@ -58,38 +58,44 @@
         }
 
         header {
-            justify-content: space-between;
-            padding: var(--large) 0;
+            padding: var(--medium) var(--large);
+            background: var(--soft);
             border-bottom: 1px solid var(--border);
         }
 
-        .header-left {
-            gap: var(--large);
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--medium);
+            flex-wrap: wrap;
+        }
+
+        .header-top p {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold;
         }
 
         a {
             color: var(--accent);
         }
 
-        nav a, .brand {
-            text-decoration: none;
-        }
-
         nav {
             gap: var(--medium);
+            margin-top: var(--medium);
             font-size: 14px;
         }
 
-        .brand {
-            font-size: 22px;
-            font-weight: bold;
+        main {
+            padding: 0 var(--large);
         }
 
         button, input {
             font: inherit;
             border: 1px solid var(--border);
-            border-radius: var(--small);
-            padding: var(--small) var(--medium);
+            border-radius: 3px;
+            padding: 6px 12px;
         }
 
         button {
@@ -107,66 +113,26 @@
             outline-offset: 3px;
         }
 
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: var(--large);
-            padding: 60px 0;
-        }
-
-        .section-label {
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
         h1, h2, h3, p {
-            margin: 0 0 var(--medium);
+            margin: 0 0 12px;
         }
 
         h1 {
-            font-size: 52px;
-            line-height: 1.15;
+            font-size: 28px;
         }
 
         h2 {
-            font-size: 28px;
+            font-size: 22px;
         }
 
         h3 {
             font-size: 18px;
         }
 
-        .intro {
-            max-width: 570px;
-            color: var(--muted);
-        }
-
-        .initials {
-            display: grid;
-            place-items: center;
-            flex-shrink: 0;
-            width: 150px;
-            height: 150px;
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            background: var(--soft);
-            color: var(--accent);
-            font-size: 54px;
-        }
-
         section {
-            margin-bottom: var(--section-gap);
-            scroll-margin-top: var(--large);
-        }
-
-        .card {
-            padding: var(--large);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            background: var(--surface);
+            padding: var(--large) 0;
+            border-bottom: 1px solid var(--border);
+            scroll-margin-top: var(--medium);
         }
 
         .muted, figcaption, footer {
@@ -183,14 +149,11 @@
             padding-left: var(--large);
         }
 
-        .gallery, .contact-grid {
+        .gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--large);
-        }
-
-        .gallery {
-            margin-top: var(--large);
+            gap: var(--medium);
+            margin-top: var(--medium);
         }
 
         figure {
@@ -198,9 +161,8 @@
         }
 
         .photo-frame {
-            height: 230px;
+            height: 180px;
             background: var(--soft);
-            border-radius: var(--radius);
             overflow: hidden;
         }
 
@@ -223,7 +185,7 @@
 
         .interest-panel {
             display: none;
-            padding: var(--medium);
+            padding: 12px;
             color: var(--muted);
         }
 
@@ -231,18 +193,8 @@
             margin: var(--small) 0 0;
         }
 
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--small);
-            list-style: none;
-            padding: 0;
-        }
-
         .skill-list li {
-            padding: var(--small) var(--medium);
-            background: var(--soft);
-            border-radius: var(--small);
+            margin-bottom: 4px;
             overflow-wrap: anywhere;
         }
 
@@ -269,13 +221,13 @@
         }
 
         .skill-row {
+            max-width: 500px;
             margin-bottom: var(--medium);
         }
 
         .bar-track {
-            height: 12px;
+            height: 18px;
             background: var(--soft);
-            border-radius: var(--small);
             overflow: hidden;
         }
 
@@ -285,15 +237,19 @@
             background: var(--accent);
         }
 
+        form {
+            max-width: 400px;
+        }
+
         form input {
             width: 100%;
             margin-bottom: var(--medium);
         }
 
         .preview {
+            max-width: 400px;
             padding: var(--medium);
-            background: var(--soft);
-            border-radius: var(--small);
+            border: 1px solid var(--border);
             overflow-wrap: anywhere;
         }
 
@@ -302,29 +258,20 @@
         }
 
         footer {
-            padding: var(--large) 0;
-            border-top: 1px solid var(--border);
+            padding: var(--medium) var(--large);
         }
 
         @media (max-width: 650px) {
-            header, .header-left {
-                gap: var(--medium);
-            }
-
-            .hero {
-                padding: var(--section-gap) 0;
-            }
-
-            h1 {
-                font-size: 38px;
-            }
-
-            .initials {
-                display: none;
-            }
-
-            .gallery, .contact-grid {
+            .gallery {
                 grid-template-columns: 1fr;
+            }
+
+            header, footer {
+                padding: var(--medium);
+            }
+
+            main {
+                padding: 0 var(--medium);
             }
         }
     </style>
@@ -332,44 +279,40 @@
 <body>
     <div class="container">
         <header>
-            <div class="header-left">
-                <a class="brand" href="#home">Assem.</a>
-                <nav aria-label="Main navigation">
-                    <a href="#about">About</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#interests">Interests</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#contact">Contact</a>
-                </nav>
+            <div class="header-top">
+                <p>Assem Tugelbay</p>
+                <div class="buttons" aria-label="Theme">
+                    <button id="light-theme" type="button">Light</button>
+                    <button id="dark-theme" type="button">Dark</button>
+                </div>
             </div>
-            <div class="buttons" aria-label="Theme">
-                <button id="light-theme" type="button">Light</button>
-                <button id="dark-theme" type="button">Dark</button>
-            </div>
+            <nav aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#interests">Interests</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </header>
 
         <main>
-            <section class="hero" id="home">
-                <div>
-                    <p class="section-label">Welcome to my portfolio</p>
-                    <h1 id="greeting">Hello!</h1>
-                    <p class="intro">A student learning to build for the web. I like simple layouts, clear ideas, and seeing a page come to life.</p>
-                    <p class="muted">Assem Tugelbay · SE-2540 · Web Technologies</p>
-                    <a href="#skills">See what I'm learning ↓</a>
-                </div>
-                <div class="initials" aria-hidden="true">AT</div>
+            <section id="home">
+                <h1>Welcome to My Portfolio</h1>
+                <p class="intro" id="greeting">Hello!</p>
+                <p>I'm learning HTML, CSS and JavaScript. This is my portfolio for the jQuery assignment.</p>
+                <p class="muted">SE-2540 · Web Technologies · Assignment 6</p>
             </section>
 
-            <section class="card" id="about">
-                <p class="section-label">01 / About me</p>
-                <h2>One small step at a time.</h2>
-                <p>I'm Assem, a student in group SE-2540. This portfolio brings together my practice with HTML, CSS, and jQuery.</p>
+            <section id="about">
+                <h2>About Me</h2>
+                <p>I'm a student in group SE-2540. I am practicing web development by making small websites.</p>
                 <div id="about-extra">
                     <p><strong>Currently learning jQuery!</strong></p>
                     <ul>
-                        <li>I am practicing interactive web pages.</li>
-                        <li>My next goal is to make my layouts more responsive.</li>
-                        <li>I learn by building small projects and testing each button.</li>
+                        <li>I want to get better at CSS.</li>
+                        <li>I like listening to music while studying.</li>
+                        <li>My next goal is to make a website that works well on a phone.</li>
                     </ul>
                 </div>
                 <div class="buttons">
@@ -380,9 +323,8 @@
             </section>
 
             <section id="gallery">
-                <p class="section-label">02 / Gallery</p>
-                <h2>A little study inspiration.</h2>
-                <p class="muted">A workspace and a music break. Photos from Unsplash.</p>
+                <h2>My Gallery</h2>
+                <p>Two photos related to coding and music.</p>
                 <div class="buttons">
                     <button id="fade-in" type="button">Fade In</button>
                     <button id="fade-out" type="button">Fade Out</button>
@@ -391,33 +333,31 @@
                 <div class="gallery">
                     <figure>
                         <div class="photo-frame"><img src="assets/workspace.jpg" alt="A laptop with code on a desk beside a plant"></div>
-                        <figcaption>01 — A place to focus</figcaption>
+                        <figcaption>Coding — photo from Unsplash</figcaption>
                     </figure>
                     <figure>
                         <div class="photo-frame"><img src="assets/music.jpg" alt="White headphones and music equipment on a dark desk"></div>
-                        <figcaption>02 — A pause between tasks</figcaption>
+                        <figcaption>Music — photo from Unsplash</figcaption>
                     </figure>
                 </div>
             </section>
 
-            <section class="card interests" id="interests">
-                <p class="section-label">03 / Interests</p>
-                <h2>Outside the code.</h2>
+            <section class="interests" id="interests">
+                <h2>My Interests</h2>
                 <div class="buttons">
                     <button id="open-panels" type="button">Open All</button>
                     <button id="close-panels" type="button">Close All</button>
                 </div>
                 <h3><button class="interest-title" type="button" aria-expanded="false" aria-controls="music-panel">My Favorite Music +</button></h3>
-                <div class="interest-panel" id="music-panel">Quiet instrumental playlists are a good background for a study session.</div>
+                <div class="interest-panel" id="music-panel">I usually listen to pop music while doing homework.</div>
                 <h3><button class="interest-title" type="button" aria-expanded="false" aria-controls="movie-panel">My Favorite Movie +</button></h3>
-                <div class="interest-panel" id="movie-panel">Interstellar: space, science, and a story about staying curious.</div>
+                <div class="interest-panel" id="movie-panel">Interstellar. I like films about space.</div>
                 <h3><button class="interest-title" type="button" aria-expanded="false" aria-controls="subject-panel">My Favorite Subject +</button></h3>
-                <div class="interest-panel" id="subject-panel">Web Technologies. It is interesting to turn a few lines of code into something I can use.</div>
+                <div class="interest-panel" id="subject-panel">Web Technologies. I like seeing the page change when I edit the code.</div>
             </section>
 
-            <section class="card" id="skills">
-                <p class="section-label">04 / Skills</p>
-                <h2>What I'm working on.</h2>
+            <section id="skills">
+                <h2>My Skills</h2>
                 <ul class="skill-list" id="skill-list">
                     <li>HTML</li>
                     <li>CSS</li>
@@ -432,8 +372,8 @@
                     <button id="remove-skill" type="button">Remove Skill</button>
                 </div>
                 <p class="muted" id="skill-message" aria-live="polite">Remove Skill deletes the last item.</p>
-                <h3>Practice progress</h3>
-                <p class="muted">Sample levels for the animation.</p>
+                <h3>Skill Bars</h3>
+                <p class="muted">Sample levels for this assignment.</p>
                 <div class="skill-row">
                     <span>HTML · 75%</span>
                     <div class="bar-track"><div class="bar-fill" id="html-bar" role="progressbar" aria-label="HTML" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div>
@@ -449,25 +389,22 @@
                 <button id="animate-skills" type="button">Animate My Skills</button>
             </section>
 
-            <section class="card" id="contact">
-                <p class="section-label">05 / Contact</p>
-                <h2>Let's keep in touch.</h2>
+            <section id="contact">
+                <h2>Contact Form</h2>
                 <p class="muted">Type a name and email to see a live preview.</p>
-                <div class="contact-grid">
-                    <form id="contact-form">
-                        <label for="contact-name">Name</label>
-                        <input id="contact-name" type="text" autocomplete="name" placeholder="Your name">
-                        <label for="contact-email">Email</label>
-                        <input id="contact-email" type="email" autocomplete="email" placeholder="you@example.com">
-                    </form>
-                    <div class="preview" aria-live="polite">
-                        <h3>Your preview</h3>
-                        <p>Name: <span id="name-preview"></span></p>
-                        <p>Email: <span id="email-preview"></span></p>
-                    </div>
+                <form id="contact-form">
+                    <label for="contact-name">Name</label>
+                    <input id="contact-name" type="text" autocomplete="name" placeholder="Your name">
+                    <label for="contact-email">Email</label>
+                    <input id="contact-email" type="email" autocomplete="email" placeholder="you@example.com">
+                </form>
+                <div class="preview" aria-live="polite">
+                    <h3>Your preview</h3>
+                    <p>Name: <span id="name-preview"></span></p>
+                    <p>Email: <span id="email-preview"></span></p>
                 </div>
                 <div class="social">
-                    <p><a id="social-link" href="https://github.com/asemtygelbaeva-byte" target="_blank" rel="noopener noreferrer">My GitHub profile ↗</a></p>
+                    <p><a id="social-link" href="https://github.com/asemtygelbaeva-byte" target="_blank" rel="noopener noreferrer">My GitHub profile</a></p>
                     <button id="change-link" type="button">Change Link to My Project</button>
                 </div>
             </section>
@@ -480,9 +417,9 @@
         $(document).ready(function () {
             console.log("jQuery is ready!");
 
-            $("#greeting").text("Hi, I'm Assem.");
-            $("h1").css("letter-spacing", "-1px");
-            $(".section-label").css("color", "var(--accent)");
+            $("#greeting").text("Hi! My name is Assem.");
+            $("h1").css("color", "var(--accent)");
+            $(".intro").css("font-weight", "bold");
 
             $("#light-theme").click(function () {
                 $("body").removeClass("dark");
@@ -561,7 +498,7 @@
 
             $("#change-link").click(function () {
                 $("#social-link").attr("href", "https://github.com/asemtygelbaeva-byte/assignment6_frontend");
-                $("#social-link").text("My frontend project ↗");
+                $("#social-link").text("My frontend project");
             });
 
             $("#contact-name, #contact-email").on("input", function () {
