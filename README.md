@@ -7,6 +7,8 @@
 
 A small portfolio made with HTML, CSS, and jQuery. The page includes information about me, a gallery, interests, a skill list, and a live form preview.
 
+The layout is a web notebook: lined paper, a side note for navigation, highlighted headings, and photo frames. The paper lines use a repeating CSS background, and the small rotations use `transform`. The JavaScript is inside the final `<script>` block in `index.html`.
+
 ## Part 1. Getting Started with jQuery
 
 ### Task 0. Setup

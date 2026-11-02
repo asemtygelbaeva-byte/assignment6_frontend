@@ -7,14 +7,20 @@
     <title>Assem Tugelbay | Portfolio</title>
     <style>
         :root {
-            --background: #f1f1f1;
-            --surface: #ffffff;
-            --text: #29252a;
-            --muted: #666166;
-            --accent: #923f5d;
-            --soft: #f3e3e9;
-            --border: #d7ced2;
-            --font: Arial, sans-serif;
+            --background: #e6dfd1;
+            --surface: #fffdf2;
+            --text: #29465c;
+            --muted: #5a6c79;
+            --accent: #b94e53;
+            --soft: #f6e7ac;
+            --border: #9cabb4;
+            --line: #dbe5ec;
+            --tape: #b9d1c4;
+            --marker: #f4d37f;
+            --shadow: #c7bdac;
+            --photo: #fffefa;
+            --font: "Trebuchet MS", Arial, sans-serif;
+            --note-font: Georgia, serif;
             --small: 8px;
             --medium: 16px;
             --large: 24px;
@@ -29,25 +35,32 @@
             background: var(--background);
             color: var(--text);
             font-family: var(--font);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         body.dark {
-            --background: #1d1d20;
-            --surface: #29292e;
-            --text: #eeeeee;
-            --muted: #c2bac0;
-            --accent: #efb1c5;
-            --soft: #44313b;
-            --border: #60555d;
+            --background: #1c2530;
+            --surface: #293540;
+            --text: #ece9dc;
+            --muted: #b9c5cb;
+            --accent: #ffb5aa;
+            --soft: #3e4c49;
+            --border: #8798a1;
+            --line: #3b4d5c;
+            --tape: #466255;
+            --marker: #69603d;
+            --shadow: #111b24;
+            --photo: #35434e;
         }
 
         .container {
-            width: 92%;
-            max-width: 900px;
-            margin: var(--large) auto;
-            background: var(--surface);
-            border: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr);
+            align-items: start;
+            gap: var(--large);
+            width: 94%;
+            max-width: 1120px;
+            margin: 36px auto;
         }
 
         nav, .buttons {
@@ -58,23 +71,33 @@
         }
 
         header {
-            padding: var(--medium) var(--large);
+            position: sticky;
+            top: var(--large);
+            padding: var(--medium);
             background: var(--soft);
-            border-bottom: 1px solid var(--border);
+            border-top: 18px solid var(--tape);
+            box-shadow: 3px 4px 0 var(--shadow);
+            transform: rotate(-2deg);
         }
 
         .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: var(--medium);
-            flex-wrap: wrap;
+            margin-bottom: var(--large);
         }
 
-        .header-top p {
-            margin: 0;
-            font-size: 22px;
+        .name {
+            font-family: var(--note-font);
+            font-size: 24px;
+            font-style: italic;
             font-weight: bold;
+        }
+
+        .header-note {
+            font-size: 13px;
+        }
+
+        header button {
+            padding: 4px var(--small);
+            font-size: 13px;
         }
 
         a {
@@ -82,30 +105,46 @@
         }
 
         nav {
-            gap: var(--medium);
-            margin-top: var(--medium);
-            font-size: 14px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            font-family: var(--note-font);
+            font-style: italic;
+        }
+
+        nav a {
+            color: var(--text);
+            text-underline-offset: 4px;
         }
 
         main {
-            padding: 0 var(--large);
+            min-width: 0;
+            padding: var(--medium) 32px var(--medium) 40px;
+            border-left: 3px solid var(--accent);
+            background: repeating-linear-gradient(
+                var(--surface) 0,
+                var(--surface) 31px,
+                var(--line) 31px,
+                var(--line) 32px
+            );
+            box-shadow: 6px 7px 0 var(--shadow);
         }
 
         button, input {
             font: inherit;
             border: 1px solid var(--border);
-            border-radius: 3px;
+            border-radius: 0;
             padding: 6px 12px;
         }
 
         button {
-            background: var(--soft);
+            background: var(--surface);
             color: var(--text);
             cursor: pointer;
         }
 
         button:hover {
-            border-color: var(--accent);
+            background: var(--soft);
         }
 
         button:focus-visible, input:focus-visible, a:focus-visible {
@@ -118,11 +157,19 @@
         }
 
         h1 {
-            font-size: 28px;
+            font-family: var(--note-font);
+            font-size: 36px;
+            font-style: italic;
+            line-height: 1.2;
         }
 
         h2 {
-            font-size: 22px;
+            display: inline-block;
+            padding: 0 4px;
+            font-family: var(--note-font);
+            font-size: 25px;
+            font-style: italic;
+            box-shadow: inset 0 -9px 0 var(--marker);
         }
 
         h3 {
@@ -130,9 +177,19 @@
         }
 
         section {
-            padding: var(--large) 0;
-            border-bottom: 1px solid var(--border);
+            padding: 32px 0;
+            border-bottom: 1px dashed var(--border);
             scroll-margin-top: var(--medium);
+        }
+
+        .scribble {
+            margin-top: var(--large);
+            color: var(--accent);
+            font-family: var(--note-font);
+            font-size: 20px;
+            font-style: italic;
+            text-align: right;
+            transform: rotate(-3deg);
         }
 
         .muted, figcaption, footer {
@@ -152,16 +209,25 @@
         .gallery {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--medium);
-            margin-top: var(--medium);
+            gap: var(--large);
+            margin: var(--large) 0 var(--medium);
         }
 
         figure {
             margin: 0;
+            padding: var(--small);
+            background: var(--photo);
+            border: 1px solid var(--border);
+            box-shadow: 3px 4px 0 var(--shadow);
+            transform: rotate(-2deg);
+        }
+
+        figure:nth-child(2) {
+            transform: rotate(2deg);
         }
 
         .photo-frame {
-            height: 180px;
+            height: 200px;
             background: var(--soft);
             overflow: hidden;
         }
@@ -174,18 +240,28 @@
         }
 
         figcaption {
-            padding-top: var(--small);
+            padding: var(--small) 0 4px;
+            font-family: var(--note-font);
+            font-style: italic;
+            text-align: center;
         }
 
         .interest-title {
             width: 100%;
             text-align: left;
+            border: 0;
+            border-bottom: 1px dashed var(--border);
+            background: transparent;
+            font-family: var(--note-font);
+            font-size: 18px;
+            font-style: italic;
             font-weight: bold;
         }
 
         .interest-panel {
             display: none;
             padding: 12px;
+            border-left: 3px solid var(--marker);
             color: var(--muted);
         }
 
@@ -196,6 +272,13 @@
         .skill-list li {
             margin-bottom: 4px;
             overflow-wrap: anywhere;
+        }
+
+        .skills-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--large);
+            margin-top: var(--medium);
         }
 
         input {
@@ -226,7 +309,8 @@
         }
 
         .bar-track {
-            height: 18px;
+            height: 15px;
+            border-bottom: 1px solid var(--border);
             background: var(--soft);
             overflow: hidden;
         }
@@ -234,7 +318,7 @@
         .bar-fill {
             width: 0;
             height: 100%;
-            background: var(--accent);
+            background: var(--text);
         }
 
         form {
@@ -249,7 +333,8 @@
         .preview {
             max-width: 400px;
             padding: var(--medium);
-            border: 1px solid var(--border);
+            background: var(--soft);
+            border: 1px dashed var(--border);
             overflow-wrap: anywhere;
         }
 
@@ -258,20 +343,50 @@
         }
 
         footer {
-            padding: var(--medium) var(--large);
+            grid-column: 2;
+            font-family: var(--note-font);
+            font-style: italic;
+            text-align: right;
         }
 
-        @media (max-width: 650px) {
+        @media (max-width: 950px) {
+            .skills-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .container {
+                grid-template-columns: 1fr;
+                width: 92%;
+                margin: var(--large) auto;
+            }
+
+            header {
+                position: static;
+                transform: none;
+            }
+
+            .header-top {
+                margin-bottom: var(--medium);
+            }
+
+            nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: var(--medium);
+            }
+
+            main {
+                padding: 0 var(--medium) 0 var(--large);
+            }
+
             .gallery {
                 grid-template-columns: 1fr;
             }
 
-            header, footer {
-                padding: var(--medium);
-            }
-
-            main {
-                padding: 0 var(--medium);
+            footer {
+                grid-column: 1;
             }
         }
     </style>
@@ -280,7 +395,8 @@
     <div class="container">
         <header>
             <div class="header-top">
-                <p>Assem Tugelbay</p>
+                <p class="name">Assem<br>Tugelbay</p>
+                <p class="header-note">SE-2540<br>Web Technologies</p>
                 <div class="buttons" aria-label="Theme">
                     <button id="light-theme" type="button">Light</button>
                     <button id="dark-theme" type="button">Dark</button>
@@ -298,10 +414,11 @@
 
         <main>
             <section id="home">
-                <h1>Welcome to My Portfolio</h1>
+                <h1>My web notebook</h1>
                 <p class="intro" id="greeting">Hello!</p>
-                <p>I'm learning HTML, CSS and JavaScript. This is my portfolio for the jQuery assignment.</p>
-                <p class="muted">SE-2540 · Web Technologies · Assignment 6</p>
+                <p>Welcome to my portfolio. I'm learning HTML, CSS and JavaScript, and trying things out on this page.</p>
+                <p class="muted">Web Technologies · Assignment 6</p>
+                <p class="scribble">still learning :)</p>
             </section>
 
             <section id="about">
@@ -333,11 +450,11 @@
                 <div class="gallery">
                     <figure>
                         <div class="photo-frame"><img src="assets/workspace.jpg" alt="A laptop with code on a desk beside a plant"></div>
-                        <figcaption>Coding — photo from Unsplash</figcaption>
+                        <figcaption>coding / Unsplash</figcaption>
                     </figure>
                     <figure>
                         <div class="photo-frame"><img src="assets/music.jpg" alt="White headphones and music equipment on a dark desk"></div>
-                        <figcaption>Music — photo from Unsplash</figcaption>
+                        <figcaption>music / Unsplash</figcaption>
                     </figure>
                 </div>
             </section>
@@ -358,35 +475,41 @@
 
             <section id="skills">
                 <h2>My Skills</h2>
-                <ul class="skill-list" id="skill-list">
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>jQuery</li>
-                </ul>
-                <label for="skill-input">Add a skill to the list</label>
-                <input id="skill-input" type="text" placeholder="For example, Git" maxlength="40">
-                <div class="buttons">
-                    <button id="add-skill" type="button">Add Skill</button>
-                    <button id="prepend-skill" type="button">Prepend Skill</button>
-                    <button id="remove-skill" type="button">Remove Skill</button>
+                <div class="skills-columns">
+                    <div>
+                        <ul class="skill-list" id="skill-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>jQuery</li>
+                        </ul>
+                        <label for="skill-input">Add a skill to the list</label>
+                        <input id="skill-input" type="text" placeholder="For example, Git" maxlength="40">
+                        <div class="buttons">
+                            <button id="add-skill" type="button">Add Skill</button>
+                            <button id="prepend-skill" type="button">Prepend Skill</button>
+                            <button id="remove-skill" type="button">Remove Skill</button>
+                        </div>
+                        <p class="muted" id="skill-message" aria-live="polite">Remove Skill deletes the last item.</p>
+                    </div>
+                    <div>
+                        <h3>Practice levels</h3>
+                        <p class="muted">Sample levels for this assignment.</p>
+                        <div class="skill-row">
+                            <span>HTML · 75%</span>
+                            <div class="bar-track"><div class="bar-fill" id="html-bar" role="progressbar" aria-label="HTML" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <span>CSS · 60%</span>
+                            <div class="bar-track"><div class="bar-fill" id="css-bar" role="progressbar" aria-label="CSS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <span>jQuery · 35%</span>
+                            <div class="bar-track"><div class="bar-fill" id="jquery-bar" role="progressbar" aria-label="jQuery" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div>
+                        </div>
+                        <button id="animate-skills" type="button">Animate My Skills</button>
+                    </div>
                 </div>
-                <p class="muted" id="skill-message" aria-live="polite">Remove Skill deletes the last item.</p>
-                <h3>Skill Bars</h3>
-                <p class="muted">Sample levels for this assignment.</p>
-                <div class="skill-row">
-                    <span>HTML · 75%</span>
-                    <div class="bar-track"><div class="bar-fill" id="html-bar" role="progressbar" aria-label="HTML" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div>
-                </div>
-                <div class="skill-row">
-                    <span>CSS · 60%</span>
-                    <div class="bar-track"><div class="bar-fill" id="css-bar" role="progressbar" aria-label="CSS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div>
-                </div>
-                <div class="skill-row">
-                    <span>jQuery · 35%</span>
-                    <div class="bar-track"><div class="bar-fill" id="jquery-bar" role="progressbar" aria-label="jQuery" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div>
-                </div>
-                <button id="animate-skills" type="button">Animate My Skills</button>
             </section>
 
             <section id="contact">
